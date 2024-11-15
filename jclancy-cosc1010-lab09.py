@@ -43,7 +43,7 @@ class Pizzeria:
 
         size = int(input("Enter pizza size: "))
         sauce = input("Enter sauce (leave blank for marinara): ").strip()
-        if not sauce:
+        if "" == sauce:
             sauce = "marinara"
 
         pizza = Pizza(size, sauce) #create object
