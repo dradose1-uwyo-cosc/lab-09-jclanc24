@@ -60,15 +60,9 @@ class Pizzeria:
         return pizza
 
     def getPrice(self, pizza):
-        """
-        Calculate the price of the pizza based on size and toppings.
-        """
         return (pizza.getSize() * self.price_per_inch) + (pizza.getAmountOfToppings() * self.price_per_topping)
 
     def getReceipt(self, pizza):
-        """
-        Print a detailed receipt for the pizza.
-        """
         print("*" * 78)
         print(f"Receipt for Order #{self.order_count}")
         print(f"Size: {pizza.getSize()} inches")
@@ -85,9 +79,6 @@ class Pizzeria:
         print("*" * 78)
 
     def getNumberOfOrders(self):
-        """
-        Return the total number of orders placed.
-        """
         return self.order_count
 
 
