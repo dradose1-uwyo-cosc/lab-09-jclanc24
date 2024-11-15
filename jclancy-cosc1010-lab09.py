@@ -82,7 +82,10 @@ class Pizzeria:
         return self.order_count
 
 
-def main():
+
+#PROGRAM START
+
+
     pizzeria = Pizzeria() #create object
 
     while True:
@@ -98,5 +101,3 @@ def main():
 
     print(f"Total orders placed: {pizzeria.getNumberOfOrders()}")
 
-if __name__ == "__main__":
-    main()
