@@ -34,6 +34,36 @@
 # - Assign the parameter for sauce to the attribute.
 # - Create the toppings attribute, starting off as a list only holding cheese.
 
+class Pizza:
+
+
+    def __init__(self, size, sauce="marinara"):
+        
+        self.setSize(size)
+        self.sauce = sauce
+        self.toppings = ["cheese"]  # Default is cheese
+
+    def setSize(self, size):
+        if size >= 10:
+            self.size = size
+        else:
+            self.size = 10  # Default to 10"
+
+    def getSize(self):
+        return self.size
+
+    def getSauce(self):
+        return self.sauce
+
+    def getToppings(self):
+        return self.toppings
+
+    def addToppings(self, toppings): #needs asterisk since outout is type list
+        for topping in toppings:
+            self.toppings.append(topping)   #appending to topping attribute of Pizza
+
+    def getAmountOfToppings(self):
+        return len(self.toppings)
 
 # You will be creating a Pizzeria class with the following attributes:
 # - orders, the number of orders placed. Should start at 0.
@@ -70,72 +100,6 @@
 #   - This will simply return the number of orders.
 
 
-# - Declare your pizzeria object.
-# - Enter a while loop to ask if the user wants to order a pizza.
-# - Exit on the word `exit`.
-# - Call the placeOrder() method with your class instance.
-# - After the order is placed, call the getReceipt() method.
-# - Repeat the loop as needed.
-# - AFTER the loop, print how many orders were placed.
-
-
-# Example output:
-"""
-Would you like to place an order? exit to exit
-yes
-Please enter the size of pizza, as a whole number. The smallest size is 10
-20
-What kind of sauce would you like?
-Leave blank for red sauce
-garlic
-Please enter the toppings you would like, leave blank when done
-pepperoni
-bacon
-
-You ordered a 20" pizza with garlic sauce and the following toppings:
-                                                                  cheese
-                                                                  pepperoni
-                                                                  bacon
-You ordered a 20" pizza for 12.0
-You had 3 topping(s) for $0.8999999999999999
-Your total price is $12.9
-
-Would you like to place an order? exit to exit
-"""
-
-
-class Pizza:
-
-
-    def __init__(self, size, sauce="marinara"):
-        
-        self.setSize(size)
-        self.sauce = sauce
-        self.toppings = ["cheese"]  # Default is cheese
-
-    def setSize(self, size):
-        if size >= 10:
-            self.size = size
-        else:
-            self.size = 10  # Default to 10"
-
-    def getSize(self):
-        return self.size
-
-    def getSauce(self):
-        return self.sauce
-
-    def getToppings(self):
-        return self.toppings
-
-    def addToppings(self, toppings): #needs asterisk since outout is type list
-        for topping in toppings:
-            self.toppings.append(topping)   #appending to topping attribute of Pizza
-
-    def getAmountOfToppings(self):
-        return len(self.toppings)
-
-
 class Pizzeria:
     
     def __init__(self):
@@ -157,10 +121,10 @@ class Pizzeria:
         toppings_input = input("Enter toppings (separate by commas, leave blank when done): ").strip()
         if toppings_input:
             toppings = toppings_input.split(",")
-            pizza.addToppings(toppings)  # Add toppings to the pizza
+            pizza.addToppings(toppings) 
 
         
-        self.orders.append(pizza)   # Store the pizza object in the orders list
+        self.orders.append(pizza) 
         self.order_count += 1
 
         return pizza
@@ -195,6 +159,20 @@ class Pizzeria:
 #PROGRAM START
 
 
+
+
+# - Declare your pizzeria object.
+# - Enter a while loop to ask if the user wants to order a pizza.
+# - Exit on the word `exit`.
+# - Call the placeOrder() method with your class instance.
+# - After the order is placed, call the getReceipt() method.
+# - Repeat the loop as needed.
+# - AFTER the loop, print how many orders were placed.
+
+
+
+
+
 pizzeria = Pizzeria()
 
 while True:
@@ -203,8 +181,7 @@ while True:
     if user_input == "exit":
         break
     elif user_input == "yes":
-        pizza = pizzeria.placeOrder()  # Place a new order/create object
-        pizzeria.getReceipt(pizza)     # Show the receipt
+        pizza = pizzeria.placeOrder()
     else:
         print("Invalid input, please type 'yes' or 'exit'.")
 
